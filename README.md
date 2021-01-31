@@ -1,2 +1,2 @@
 # playgroundexpress_tft
- Adafruit playground express base project to use with tft gizmo
+ Collection of example sketchs for [Adafruit playground express]() with [tft gizmo](http://www.adafruit.com/products/4367)

@@ -27,19 +27,8 @@ int xPos = 120;
 int yPos = 120;
 int motionX;
 int motionY;
-volatile uint16_t actualColor=ST77XX_RED;
 
-const uint16_t colorsCicle[6]= {ST77XX_RED, ST77XX_BLUE, ST77XX_GREEN, ST77XX_ORANGE, ST77XX_CYAN, ST77XX_YELLOW};
 
-void chgColor() {
-  actualColor=colorsCicle[random(5)];
-  return;
-}
-
-void clearScreen() {
-  tft.fillScreen(ST77XX_BLACK);
-  return;
-}
 
 void setup(void) {
   
@@ -74,21 +63,15 @@ void setup(void) {
     delay(1000);
   }
 
-  tft.fillScreen(ST77XX_BLACK);
-
-  pinMode(4, INPUT);
-  pinMode(5, INPUT);
-  attachInterrupt(digitalPinToInterrupt(5), chgColor, HIGH);
-  attachInterrupt(digitalPinToInterrupt(4), clearScreen, HIGH);
 
 }
 
 void loop() {
-  //tft.fillScreen(ST77XX_BLACK);
+  tft.fillScreen(ST77XX_BLACK);
   tft.setCursor(xPos, yPos);
 
-  tft.drawCircle(xPos, yPos, 10, actualColor);
-  tft.fillCircle(xPos, yPos, 10, actualColor);
+  tft.drawCircle(xPos, yPos, 10, ST77XX_RED);
+  tft.fillCircle(xPos, yPos, 10, ST77XX_RED);
 
   delay(10);
 
